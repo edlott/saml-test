@@ -1,0 +1,38 @@
+{
+  "name": "saml-bug-tester",
+  "version": "1.0.0-beta",
+  "description": "Simple front-end that works with the samlbug Okta tenant",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "homepage": ".",
+  "dependencies": {
+    "@okta/okta-auth-js": "^7.2.0",
+    "@okta/okta-react": "^6.7.0",
+    "react-dom": "^16.14.0",
+    "react-router-dom": "^5.1.0",
+    "worker-interval": "^1.0.6"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.0",
+    "react-scripts": "4.0.3",
+    "sass": "^1.64.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

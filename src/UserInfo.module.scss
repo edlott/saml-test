@@ -1,0 +1,20 @@
+.tokenTable {
+    border: 1px solid;
+    border-collapse: collapse;
+    th, td {
+        border: 1px solid;
+    }
+}
+
+.userinfo {
+    p {
+        span {
+            font-size: 10px;
+            overflow-wrap: break-word;
+        }
+    }
+
+    button {
+        margin-right: 5px;
+    }
+}
