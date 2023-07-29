@@ -18,3 +18,10 @@ npm run start # Run this every time you want to start the application.
 If you want to login as a manual user, browse to http://localhost:3000.  If
 you want to SSO into this application, run the mock-saml companion application
 and perform a login - it will re-direct to this application and log you in.
+
+The application is simple enough:
+* When you go to a page requiring authentication, you initiate an okta-hosted login flow.
+* While you're logged-in, you can go to the user-info page to see your token.
+* This application uses the token-refresh pattern to guarantee that you have a valid token.
+* The application logs you out when you attempt to refresh the token past the configured refresh window.
+* There's a counter section at the bottom of the screen that shows you token-change activity (i.e. counting token-refreshes).
