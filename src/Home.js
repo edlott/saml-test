@@ -1,13 +1,13 @@
 import React from 'react';
-import { useHistory } from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 const Home = () => {
     const history = useHistory();
     return (
         <div>
             <h1>Home Page</h1>
             <ul>
-                <li><a href='userInfo'>User Info</a></li>
-                <li><a href='doLogout'>Logout</a></li>
+                <li><Link to="userInfo">User Info</Link></li>
+                <li><Link to="doLogout">Logout</Link></li>
             </ul>
         </div>
     );
