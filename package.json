@@ -20,6 +20,7 @@
   },
   "scripts": {
     "start": "cross-env BROWSER=none react-scripts start",
+    "startContainer": "PORT=443 HTTPS=true NODE_OPTIONS=---openssl-legacy-provider cross-env BROWSER=none react-scripts start",
     "build": "react-scripts build",
     "eject": "react-scripts eject"
   },
