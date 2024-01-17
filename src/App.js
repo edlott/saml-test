@@ -9,30 +9,37 @@ import LogoutHandler from './LogoutHandler';
 import Logout from './Logout';
 import Timer from './Timer';
 
-const oktaAuth = new OktaAuth({
-    issuer: "https://dev-71459526.okta.com/oauth2/default",
-    clientId: '0oaajqt2mup8k5b0l5d7',
-    redirectUri: `${toAbsoluteUrl('/loginCallback', window.location.origin)}`,
-    tokenManager: {
-        autoRenew: true,
-        autoRemove: false,
-        expireEarlySeconds: 5,
-        storage: 'sessionStorage'
-    },
-    services: {
-        autoRenew: false
-    },
-    scopes: ['offline_access', 'esrx.default', 'openid']
-});
-
-const customAuthHandler = async () => {
-    const previousAuthState = oktaAuth.authStateManager.getPreviousAuthState();
-    if (!previousAuthState || !previousAuthState.isAuthenticated) {
-        await oktaAuth.signInWithRedirect();
-    }
-};
-
 const App = () => {
+    const params = new URLSearchParams(window.location.search);
+    const domain = params.get('domain');
+    if (domain && window.location.pathname === '/') {
+        sessionStorage.setItem('domain', domain);
+    }
+    const domainToUse = sessionStorage.getItem('domain') || 't-mypassport.oktapreview.com';
+
+    const oktaAuth = new OktaAuth({
+        issuer: `https://${domainToUse}/oauth2/default`,
+        clientId: '0oaccjbacvw4fOs5v1d7',
+        redirectUri: `${toAbsoluteUrl('/loginCallback', window.location.origin)}`,
+        tokenManager: {
+            autoRenew: true,
+            autoRemove: false,
+            expireEarlySeconds: 5,
+            storage: 'sessionStorage'
+        },
+        services: {
+            autoRenew: false
+        },
+        scopes: ['offline_access', 'esrx.default', 'openid']
+    });
+
+    const customAuthHandler = async () => {
+        const previousAuthState = oktaAuth.authStateManager.getPreviousAuthState();
+        if (!previousAuthState || !previousAuthState.isAuthenticated) {
+            await oktaAuth.signInWithRedirect();
+        }
+    };
+
     const history = useHistory();
 
     const restoreOriginalUri = async (_oktaAuth, originalUri) => {
