@@ -19,7 +19,7 @@ const App = () => {
 
     const oktaAuth = new OktaAuth({
         issuer: `https://${domainToUse}/oauth2/default`,
-        clientId: '0oaccjbacvw4fOs5v1d7',
+        clientId: '0oacj1xu4kwkqVwfZ1d7',
         redirectUri: `${toAbsoluteUrl('/loginCallback', window.location.origin)}`,
         tokenManager: {
             autoRenew: true,
