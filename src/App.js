@@ -15,7 +15,7 @@ const App = () => {
     if (domain && window.location.pathname === '/') {
         sessionStorage.setItem('domain', domain);
     }
-    const domainToUse = sessionStorage.getItem('domain') || 't-mypassport.oktapreview.com';
+    const domainToUse = sessionStorage.getItem('domain') || 't-mymatrixx.oktapreview.com';
 
     const oktaAuth = new OktaAuth({
         issuer: `https://${domainToUse}/oauth2/default`,
