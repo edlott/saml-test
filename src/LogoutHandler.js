@@ -23,9 +23,10 @@ const LogoutHandler = () => {
                 Logging out...
             </h2>
         );
+    } else {
+        history.replace('/logout');
+        return (<div />);
     }
-    history.replace('/logout');
-    return (<div />);
 };
 
 export default LogoutHandler;
