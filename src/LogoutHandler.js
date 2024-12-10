@@ -12,7 +12,7 @@ const LogoutHandler = () => {
             oktaAuth.signOut({
                 postLogoutRedirectUri: `${toAbsoluteUrl('/logout', window.location.origin)}`
             }).then(() => {
-                sessionStorage.clear();
+                sessionStorage.removeItem('domain');
             });
         }
     }, [authState, oktaAuth]);
