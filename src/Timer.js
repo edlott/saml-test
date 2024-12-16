@@ -22,7 +22,7 @@ const Timer = () => {
                     setChangeCount(changeCount + 1);
                 }
                 if (!isAuthenticated) {
-                    history.replace('/doLogout');
+                    history.replace('/logout');
                 }
             });
             setRefreshCount(refreshCount + 1);
